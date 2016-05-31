@@ -2,7 +2,7 @@
 #
 # I3 bar with https://github.com/LemonBoy/bar
 
-. $(dirname $0)/i3_lemonbar_config
+. $(dirname $0)/config
 
 if [ $(pgrep -cx $(basename $0)) -gt 1 ] ; then
     printf "%s\n" "The status bar is already running." >&2
@@ -21,14 +21,14 @@ xprop -spy -root _NET_ACTIVE_WINDOW | sed -un 's/.*\(0x.*\)/WIN\1/p' > "${panel_
 
 # i3 Workspaces, "WSP"
 # TODO : Restarting I3 breaks the IPC socket con. :(
-$(dirname $0)/i3_workspaces.pl > "${panel_fifo}" &
+$(dirname $0)/workspaces.pl > "${panel_fifo}" &
 
 # IRC, "IRC"
 # only for init
 ~/bin/irc_warn &
 
 # Conky, "SYS"
-conky -c $(dirname $0)/i3_lemonbar_conky > "${panel_fifo}" &
+conky -c $(dirname $0)/conky > "${panel_fifo}" &
 
 ### UPDATE INTERVAL METERS
 cnt_vol=${upd_vol}
@@ -63,7 +63,7 @@ done &
 
 #### LOOP FIFO
 
-cat "${panel_fifo}" | $(dirname $0)/i3_lemonbar_parser.sh \
+cat "${panel_fifo}" | $(dirname $0)/parser.sh \
   | lemonbar -p -f "${font}" -f "${iconfont}" -g "${geometry}" -B "${color_back}" -F "${color_fore}" &
 
 wait
