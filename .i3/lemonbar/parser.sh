@@ -4,7 +4,7 @@
 # 14 ago 2015 - Electro7
 
 # config
-. $(dirname $0)/i3_lemonbar_config
+. $(dirname $0)/config
 
 # min init
 irc_n_high=0
