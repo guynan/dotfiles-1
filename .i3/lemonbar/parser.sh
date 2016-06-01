@@ -22,9 +22,9 @@ while read -r line ; do
       else
         date="${sys_arr[1]} ${sys_arr[2]}"
       fi
-      date="%{F${color_sec_b1}}${sep_left}%{F${color_icon} B${color_sec_b1}} %{T2}${icon_clock}%{F- T1} ${date}"
+      date="%{F${color_head}}${sep_left}%{F${color_icon} B${color_head}} %{T2}${icon_clock}%{F- T1} ${date}"
       # time
-      time="%{F${color_head}}${sep_left}%{F${color_back} B${color_head}} ${sys_arr[3]} %{F- B-}"
+      time="%{F${color_wsp}}${sep_left}%{F${color_fore} B${color_wsp}} ${sys_arr[3]} %{F- B-}"
       # cpu
       if [ ${sys_arr[4]} -gt ${cpu_alert} ]; then
         cpu_cback=${color_cpu}; cpu_cicon=${color_back}; cpu_cfore=${color_back};
@@ -106,7 +106,7 @@ while read -r line ; do
       ;;
     WSP*)
       # I3 Workspaces
-      wsp="%{F${color_back} B${color_head}} %{T2}${icon_wsp}%{T1}"
+      wsp="%{F${color_fore} B${color_head}} %{T2}${icon_wsp}%{T1}"
       set -- ${line#???}
       while [ $# -gt 0 ] ; do
         case $1 in
@@ -114,7 +114,7 @@ while read -r line ; do
            wsp="${wsp}%{F${color_head} B${color_wsp}}${sep_right}%{F${color_back} B${color_wsp} T1} ${1#???} %{F${color_wsp} B${color_head}}${sep_right}"
            ;;
          INA*|URG*|ACT*)
-           wsp="${wsp}%{F${color_disable} T1} ${1#???} "
+           wsp="${wsp}%{F${color_fore} T1} ${1#???} "
            ;;
         esac
         shift
@@ -129,6 +129,6 @@ while read -r line ; do
   esac
 
   # And finally, output
-  printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${irc}${stab}${gmail}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${diskh}${stab}${wland}${stab}${wlanu}${stab}${ethd}${stab}${ethu}${stab}${vol}${stab}${date}${stab}${time}"
+  printf "%s\n" "%{l}${wsp}${title} %{r}${mpd}${stab}${cpu}${stab}${mem}${stab}${diskr}${stab}${wland}${stab}${wlanu}${stab}${vol}${stab}${date}${stab}${time}"
   #printf "%s\n" "%{l}${wsp}${title}"
 done

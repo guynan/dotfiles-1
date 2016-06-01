@@ -19,7 +19,7 @@ upd_mail=300                        # Mail check update
 # color definitions 
 color_back="#FF1D1F21"              # Default background
 color_fore="#FFC5C8C6"              # Default foreground
-color_head="#FFB5BD68"              # Background for first element
+color_head="#FF002B36"              # Background for first element
 color_sec_b1="#FF282A2E"            # Background for section 1
 color_sec_b2="#FF454A4F"            # Background for section 2
 color_sec_b3="#FF60676E"            # Background for section 3
@@ -29,7 +29,7 @@ color_chat="#FFCC6666"              # Background color for chat alert
 color_cpu="#FF5F819D"               # Background color for cpu alert
 color_net="#FF5E8D87"               # Background color for net alert
 color_disable="#FF1D1F21"           # Foreground for disable elements
-color_wsp="#FF8C9440"               # Background for selected workspace
+color_wsp="#FF2AA198"               # Background for selected workspace
 
 #default space between sections
 if [ ${res_w} -gt 1024 ]; then
@@ -46,14 +46,14 @@ sep_l_right=""                     # Powerline light sepatator right
 
 # Icon glyphs from Terminusicons2
 icon_clock="Õ"                      # Clock icon
-icon_cpu="Ï"                        # CPU icon
-icon_mem="Þ"                        # MEM icon
-icon_dl="Ð"                         # Download icon
-icon_ul="Ñ"                         # Upload icon
+icon_cpu="CPU"                        # CPU icon
+icon_mem="MEM"                        # MEM icon
+icon_dl="Down"                         # Download icon
+icon_ul="Up"                         # Upload icon
 icon_vol="Ô"                        # Volume icon
 icon_hd="À"                         # HD / icon
 icon_home="Æ"                       # HD /home icon
 icon_music="Î"                      # Music icon
 icon_prog="Â"                       # Window icon
 icon_contact="Á"                    # Contact icon
-icon_wsp="É"                        # Workspace icon
+icon_wsp=""                        # Workspace icon
